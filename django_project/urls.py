@@ -22,10 +22,7 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),  # Include URLs from the accounts app
-    path(
-        "accounts/", include("django.contrib.auth.urls")
-    ),  # Include authentication URLs
-    path(
-        "", TemplateView.as_view(template_name="home.html"), name="home"
-    ),  # Home page view
+    path("accounts/", include("django.contrib.auth.urls")),  # Include authentication URLs
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),  # Home page view
+    path("", include("pages.urls")),
 ]
